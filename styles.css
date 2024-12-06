@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff4b8d;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instruction {
+    color: #666;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-top: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heart {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(60px, 15vw, 100px);
+    height: clamp(60px, 15vw, 100px);
+    transition: transform 0.3s ease;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 52%;
+    height: 80%;
+    background: currentColor;
+    border-radius: 52% 52% 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    left: 50%;
+    top: 10%;
+}
+
+.heart:after {
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    left: 0;
+}
+
+.heart span {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    margin-top: -20px;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: clamp(0.5rem, 2vw, 1rem);
+    background: rgba(255, 255, 255, 0.8);
+    color: #ff4b8d;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+    .heart span {
+        width: 150px;
+    }
+}
